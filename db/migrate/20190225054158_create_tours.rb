@@ -5,7 +5,6 @@ class CreateTours < ActiveRecord::Migration[5.2]
       t.string :location
       t.text :description
       t.integer :price
-      t.string :photo
       t.references :user, foreign_key: true
       t.date :date
       t.integer :capacity

@@ -31,8 +31,26 @@ tours_array = [
   {
   title: "1900s history booze cruise",
   location: "Melbourne",
-  description: "Super awesome booze cruise with lots of chicks who don't know how to code.",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   price: 800,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
+  },
+    {
+  title: "Ghost Tour",
+  location: "Melbourne",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. In porro mollitia, quam voluptates ipsam iusto, animi illum doloremque rerum hic repudiandae ad dolor impedit eum itaque. Necessitatibus animi ab, natus.",
+  price: 45,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
+  },
+    {
+  title: "Gold diggers fantasy camp",
+  location: "Bendigo",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 500,
   date: "27-02-2019",
   capacity: 10,
   user: User.last

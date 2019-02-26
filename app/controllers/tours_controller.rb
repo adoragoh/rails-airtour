@@ -15,10 +15,13 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
+    authorize @tour
   end
 
   def create
     @tour = Tour.new(tour_params)
+    authorize @tour
+    @tour.user = current_user
     @tour.save
     if @tour.save
       redirect_to tour_path(@tour)
@@ -48,6 +51,6 @@ class ToursController < ApplicationController
   end
 
   def tour_params
-    params.require(:tour).permit(:title, :location, :description, :price, :photo, :user, :date, :capacity)
+    params.require(:tour).permit(:title, :location, :description, :price, :photo, :date, :capacity)
   end
 end

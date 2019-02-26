@@ -1,6 +1,7 @@
 <h2>All tours</h2>
-<% @tour.each do |tour| %>
+<% @tours.each do |tour| %>
   <h4><%= tour.title %></h4>
   <h5><%= tour.location %></h5>
   <p><%= tour.description %> | <%= tour.price %></p>
   <p><%= tour.user_id %> | <%= tour.user %></p>
+<% end %>

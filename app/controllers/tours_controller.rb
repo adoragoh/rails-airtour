@@ -4,7 +4,7 @@ class ToursController < ApplicationController
   # before_action :set_tour, only: [:create, :show]
 
   def index
-    @tours = Tour.all
+    # @tours = Tour.all
     @tours = policy_scope(Tour)
   end
 

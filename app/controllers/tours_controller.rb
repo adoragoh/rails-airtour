@@ -5,10 +5,12 @@ class ToursController < ApplicationController
 
   def index
     @tours = Tour.all
+    @tours = policy_scope(Tour)
   end
 
   def show
     #set_tour method called
+    #authorize @tour
   end
 
   def new
@@ -26,7 +28,6 @@ class ToursController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -43,6 +44,7 @@ class ToursController < ApplicationController
 
   def set_tour
     @tour = Tour.find(params[:id])
+    authorize @tour
   end
 
   def tour_params

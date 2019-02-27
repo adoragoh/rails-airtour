@@ -82,6 +82,8 @@ tours_array = [
   }
 ]
 
-Tour.create!(tours_array)
+# Tour.create!(tours_array)
+
+# tours = Tour.all?
 
 puts "5 tours added to your database!"

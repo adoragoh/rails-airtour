@@ -22,6 +22,8 @@ class ToursController < ApplicationController
       lng: @tour.longitude,
       lat: @tour.latitude
     }]
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new

@@ -38,7 +38,7 @@ tours_array = [
   {
   title: "1900s history booze cruise",
   location: "Melbourne",
-  description: "Super awesome booze cruise with lots of chicks.",
+  description: "Super awesome booze cruise with lots of chicks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellat pariatur, quis suscipit, sed, nostrum provident quod eligendi assumenda saepe eius adipisci aspernatur debitis tempore nihil voluptatibus corrupti, optio eveniet..",
   price: 80,
   date: "27-02-2019",
   capacity: 10,
@@ -47,7 +47,7 @@ tours_array = [
   {
   title: "Camel ride across the Nullabor Desert",
   location: "Alice Springs",
-  description: "Super awesome camel rides with lots of digital nomads.",
+  description: "Super awesome camel rides with lots of digital nomads. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo natus maiores laborum ipsam ea aut, accusantium ratione. Perferendis, consequuntur, adipisci. Magnam ad, placeat cum. Maxime architecto reprehenderit, dolores hic minus?",
   price: 2700,
   date: "27-02-2019",
   capacity: 10,
@@ -56,7 +56,7 @@ tours_array = [
   {
   title: "Hipster bar crawl in Newtown",
   location: "Sydney",
-  description: "Super awesome pub crawl with lots of httpsters.",
+  description: "Super awesome pub crawl with lots of httpsters. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quibusdam amet ad magnam esse expedita aliquam quasi id voluptas neque alias quam eveniet officia voluptatum distinctio, aperiam necessitatibus quae quisquam.",
   price: 65,
   date: "27-02-2019",
   capacity: 10,

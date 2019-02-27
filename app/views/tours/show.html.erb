@@ -48,8 +48,22 @@
     <div class="tab-pane fade" id="Date">
       <p>PLACEHOLDER</p>
     </div>
-    <div class="tab-pane fade" id="booking">
-      <p>PLACEHOLDER</p>
+    <div class="tab-pane fade" id="Booking">
+      <p>No. of guests:</p>
+      <%= simple_form_for [@tour, @booking] do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.select :guests, options_for_select(1..10) %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+
+      <% end %>
+
     </div>
   </div>
 

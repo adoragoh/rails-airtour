@@ -71,7 +71,18 @@
   color: white;
 }
 
-.card-category h4 a:hover{
+.card-name a{
+  margin: 0 auto;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  flex: 0 1 auto;
+}
+
+.card-name a:hover{
   background-color: rgba(0,0,0,0.5);
 }
 

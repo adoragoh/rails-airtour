@@ -1,21 +1,26 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:new, :edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :set_tour, only: [:new, :create, :destroy]
+
+  def index
+    @bookings = policy_scope(Booking)
+  end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.tour = @tour
-    @booking.user = @user
-    @booking.save
+    @booking.user = current_user
     if @booking.save
-      redirect_to tour_path(@tour)
+      redirect_to tour_bookings_path
     else
       render :new
     end
+    authorize @booking
   end
 
   def edit
@@ -28,7 +33,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to tour_path(@tour)
+    redirect_to tour_bookings_path
   end
 
   private
@@ -38,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.find(current_user.id)
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 

@@ -9,6 +9,8 @@ class ToursController < ApplicationController
   def show
     #set_tour method called
     #authorize @tour
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new

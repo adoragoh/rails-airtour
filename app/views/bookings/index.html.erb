@@ -1,4 +1,4 @@
-<h2>All bookings</h2>
+<h2>My bookings</h2>
 <% @bookings.each do |booking| %>
   <% this_booking = booking.tour %>
   <h4><%= link_to this_booking.title, tour_path(params[:tour_id]) %></h4>

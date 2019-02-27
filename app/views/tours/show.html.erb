@@ -4,31 +4,47 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(212,165,154,0.2) 0%, rgba(192,88,76,0.2) 50%), url('http://i64.tinypic.com/4jb2bc.jpg');">
   <div class="banner-content">
     <h1><%= @tour.title %></h1>
-    <a class="btn btn-primary btn-lg" href='<%= new_tour_booking_path(@tour) %>'>book me</a>
   </div>
 </div>
 
 
-<div class="tabs">
-  <a class="tab active" href="#">
-    <p>Description</p>
-  </a>
-  <a class="tab" href="#">
-    <p>Location</p>
-  </a>
-  <a class="tab" href="#">
-    <p>Date</p>
-  </a>
-  <a class="tab" href="#">
-    <p>Booking</p>
-  </a>
-</div>
+<div class="container-fluid">
+
+  <div class="tabs">
+    <a class="tab active" data-toggle="tab" href="#Description">
+      <p>Description</p>
+    </a>
+    <a class="tab" data-toggle="tab" href="#Location">
+      <p>Location</p>
+    </a>
+    <a class="tab" data-toggle="tab" href="#Date">
+      <p>Date</p>
+    </a>
+    <a class="tab" data-toggle="tab" href="#Booking">
+      <p>Booking</p>
+    </a>
+  </div>
 
 
-<div class="container">
-  <ul>
-    <li>
-      <%= @tour.description %>
-    </li>
-  </ul>
+  <div class="tab-content tab-padding">
+    <div class="tab-pane fade in active" id="Description">
+      <p><%= @tour.description %></p>
+    </div>
+    <div class="tab-pane fade" id="Location">
+      <p><%= @tour.location %></p>
+   <!--    <div id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div> -->
+    </div>
+    <div class="tab-pane fade" id="Date">
+      <p><%= @tour.date %></p>
+    </div>
+    <div class="tab-pane fade" id="booking">
+      <p><%= @tour.description %></p>
+    </div>
+  </div>
+
 </div>

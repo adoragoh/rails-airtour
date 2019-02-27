@@ -32,7 +32,7 @@ User.create!(users_array)
 
 puts "3 users added to your database!"
 
-puts "Adding 3 epic tours to the database."
+puts "Adding 5 epic tours to the database."
 
 tours_array = [
   {
@@ -61,9 +61,27 @@ tours_array = [
   date: "27-02-2019",
   capacity: 10,
   user: User.last
+  },
+  {
+  title: "Ghost Tour",
+  location: "Melbourne",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. In porro mollitia, quam voluptates ipsam iusto, animi illum doloremque rerum hic repudiandae ad dolor impedit eum itaque. Necessitatibus animi ab, natus.",
+  price: 45,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
+  },
+  {
+  title: "Gold diggers fantasy camp",
+  location: "Ballarat",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 500,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
   }
 ]
 
 Tour.create!(tours_array)
 
-puts "3 tours added to your database!"
+puts "5 tours added to your database!"

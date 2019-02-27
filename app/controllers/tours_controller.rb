@@ -4,11 +4,24 @@ class ToursController < ApplicationController
 
   def index
     @tours = policy_scope(Tour)
+
+    @tours = Tour.where.not(latitude: nil, longitude: nil)
+
+    @markers = @tours.map do |tour|
+      {
+        lng: tour.longitude,
+        lat: tour.latitude
+      }
+    end
   end
 
   def show
     #set_tour method called
     #authorize @tour
+    @marker = [{
+      lng: @tour.longitude,
+      lat: @tour.latitude
+    }]
     @booking = Booking.new
     authorize @booking
   end

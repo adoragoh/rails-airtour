@@ -4,7 +4,7 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(212,165,154,0.2) 0%, rgba(192,88,76,0.2) 50%), url('http://i64.tinypic.com/4jb2bc.jpg');">
   <div class="banner-content">
     <h1><%= @tour.title %></h1>
-    <a class="btn btn-primary btn-lg">book me</a>
+    <a class="btn btn-primary btn-lg" href='<%= new_tour_booking_path(@tour) %>'>book me</a>
   </div>
 </div>
 

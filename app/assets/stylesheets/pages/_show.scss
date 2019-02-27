@@ -68,4 +68,18 @@
 }
 
 
+.inner-description {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 50px
+}
 
+
+.inner-description p {
+  font-size: 18px;
+}
+
+.image-uploaded {
+  padding-left: 75px;
+  padding-right: 75px;
+}

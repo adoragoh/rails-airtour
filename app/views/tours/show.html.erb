@@ -27,11 +27,19 @@
 
 
   <div class="tab-content tab-padding">
-    <div class="tab-pane fade in active" id="Description">
+    <div class="tab-pane fade " id="Description">
       <p><%= @tour.description %></p>
     </div>
-    <div class="tab-pane fade" id="Location">
+    <div class="tab-pane fade in active" id="Location">
 
+      <div class="inner-description">
+
+      <p><%= @tour.description %></p>
+      <div class="image-uploaded">
+      <%= cl_image_tag @tour.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+
+      </div>
 
 
       <div

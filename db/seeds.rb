@@ -8,31 +8,56 @@
 
 puts "Clearing database..."
 
-# User.destroy_all
+User.destroy_all
 Tour.destroy_all
 
-# puts "Adding 1 user to the database."
+puts "Adding Winson, Alex & Adora as users to the database."
 
-# users_array = [
-#   {
-#   email: "hello@user.com",
-#   password: "Melbourne"
-#   encrypted_password: "Melbourne"
-#   }
-# ]
+users_array = [
+  {
+  email: "winson@airtours.com",
+  password: "securepassword"
+  },
+  {
+  email: "alex@airtours.com",
+  password: "securepassword"
+  },
+  {
+  email: "adora@airtours.com",
+  password: "securepassword"
+  }
+]
 
-# User.create!(users_array)
+User.create!(users_array)
 
-# puts "1 user added to your database!"
+puts "3 users added to your database!"
 
-puts "Adding 1 tour to the database."
+puts "Adding 3 epic tours to the database."
 
 tours_array = [
   {
   title: "1900s history booze cruise",
   location: "Melbourne",
-  description: "Super awesome booze cruise with lots of chicks who don't know how to code.",
-  price: 800,
+  description: "Super awesome booze cruise with lots of chicks.",
+  price: 80,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
+  },
+  {
+  title: "Camel ride across the Nullabor Desert",
+  location: "Alice Springs",
+  description: "Super awesome camel rides with lots of digital nomads.",
+  price: 2700,
+  date: "27-02-2019",
+  capacity: 10,
+  user: User.last
+  },
+  {
+  title: "Hipster bar crawl in Newtown",
+  location: "Sydney",
+  description: "Super awesome pub crawl with lots of httpsters.",
+  price: 65,
   date: "27-02-2019",
   capacity: 10,
   user: User.last
@@ -41,4 +66,4 @@ tours_array = [
 
 Tour.create!(tours_array)
 
-puts "1 tour added to your database!"
+puts "3 tours added to your database!"

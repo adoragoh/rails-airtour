@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:edit, :update, :destroy]
+  before_action :set_booking, only: [:new, :edit, :update, :destroy]
   before_action :set_tour, only: [:new, :create, :destroy]
 
   def new
@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.tour = @tour
-    @booking.ingredient = @ingredient
+    @booking.user = @user
     @booking.save
     if @booking.save
       redirect_to tour_path(@tour)
@@ -38,7 +38,8 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(current_user.id)
+    authorize @booking
   end
 
   def set_tour

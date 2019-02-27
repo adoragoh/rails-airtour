@@ -4,7 +4,7 @@
   <div class="cards">
     <% @tours.first(3).each do |tour| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1453210110568-1384e93a200e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1403&q=80)">
-      <h4><%= link_to tour.title, tour_path(tour) %></h4>
+      <div class="card-name"><%= link_to tour.title, tour_path(tour) %></div>
       <h5><%= tour.location %></h5>
       <!-- <p><%= tour.description %> | <%= tour.price %></p> -->
       <!-- <p><%= tour.user_id %> | <%= tour.user %></p> -->
@@ -24,7 +24,7 @@
     <% end %>
   </div>
 
-  <h2>Food tours</h2>
+  <h3>Food tours</h3>
   <div class="cards">
     <% @tours.first(2).each do |tour| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1446034730750-a0b64d06ad13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">

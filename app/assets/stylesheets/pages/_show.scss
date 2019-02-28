@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+ }
+
+ a {
+  text-decoration: none;
+  color: black;
+ }
+
 .banner {
   color: white;
   text-align: center;
@@ -38,18 +47,19 @@
   opacity: 0.8;
 }
 .tabs h3 {
-  font-size: 17px;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 31px;
   font-weight: bold;
   margin-top: 0;
 }
 .tabs p {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
   opacity: 0.5;
   margin-bottom: 0;
 }
 .tab {
   background: #F4F4F4;
   flex: 0 0 25%;
-  text-align: center;
   font-weight: 400px;
   padding: 20px 0;
 }
@@ -70,6 +80,17 @@
   font-size: 14px;
 }
 
+
+.tab {
+  text-decoration: none;
+}
+
+
+
+ #map {
+  margin-top: 100%;
+  padding-bottom: 25%;
+ }
 
 .inner-description {
   display: flex;

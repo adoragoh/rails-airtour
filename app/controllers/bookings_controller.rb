@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, only: :index #TODO: What other authorizations?
+  before_action :authenticate_user!, only: [ :index, :create ] #TODO: What other authorizations?
   before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :set_tour, only: [:new, :create]
 
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.tour = @tour
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to profile_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to bookings_path
+    redirect_to profile_path
   end
 
   def destroy

@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  before_action :set_tour, only: [:my_tours, :show, :edit, :update, :destroy]
   # before_action :set_tour, only: [:create, :show]
 
   def index
@@ -22,6 +22,10 @@ class ToursController < ApplicationController
     end
   end
 
+  def my_tours
+    @my_tours = @tours.where(user_id: current_user)
+  end
+
   def show
     #set_tour method called
     #authorize @tour
@@ -30,7 +34,10 @@ class ToursController < ApplicationController
       lat: @tour.latitude,
     }]
     @booking = Booking.new
-    @booked = current_user.booked_tours.include?(@tour)
+
+    if current_user != nil
+      @booked = current_user.booked_tours.include?(@tour)
+    end
 
     if @booked
       @booking = current_user.bookings.where(tour_id: params[:id]).first
@@ -66,7 +73,7 @@ class ToursController < ApplicationController
 
   def destroy
     @tour.destroy
-    redirect_to tours_path
+    redirect_to profile_path
   end
 
   private

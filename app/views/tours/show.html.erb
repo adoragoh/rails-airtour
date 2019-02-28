@@ -1,4 +1,15 @@
 
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(212,165,154,0.2) 0%, rgba(192,88,76,0.2) 50%), url(<%= cl_image_path @tour.photo, crop: :fill; %>)  ;">
+  <div class="banner-content">
+    <h1><%= @tour.title %></h1>
+    <h5><strong><%= link_to "Edit", edit_tour_path(@tour) %> | <%= link_to "Delete", tour_path(@tour), method: :delete %></strong></h5>
+  </div>
+</div>
+
+
+
 <div class="container-fluid">
 
   <div class="tabs">

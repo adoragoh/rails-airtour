@@ -1,4 +1,4 @@
-<div class="mid-container">
+<div class="container-fluid">
   <h3>All tours</h3>
   <%= form_tag tours_path, method: :get do %>
   <%= text_field_tag :query,
@@ -13,7 +13,7 @@
       <div class="row">
         <% @tours.each do |tour| %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="card">
+          <div class="cards">
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path tour.photo%>)">
               <div class="card-name"><%= link_to tour.title, tour_path(tour) %></div>
               <h5><%= tour.location %></h5>

@@ -1,8 +1,8 @@
-.big-container{
-  width: 1500px;
+.mid-container{
+  width: 1600px;
   margin: 0 auto;
-  min-height: 1000px;
-  margin: 10px 10px;
+  // min-height: 1000px;
+  // margin: 10px 10px;
 }
 
 .layout-container{
@@ -18,6 +18,11 @@
   height: 80vh;
   position: sticky !important;
   top: 0 !important;
+  margin-left: 20px;
+  margin-top:10px;
 }
 
 
+.form-control{
+  margin-bottom: 20px;
+}

@@ -16,7 +16,8 @@ class ToursController < ApplicationController
     @markers = @tours.map do |tour|
       {
         lng: tour.longitude,
-        lat: tour.latitude
+        lat: tour.latitude,
+        infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: tour })
       }
     end
   end
@@ -27,7 +28,6 @@ class ToursController < ApplicationController
     @marker = [{
       lng: @tour.longitude,
       lat: @tour.latitude,
-      infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: @tour })
     }]
     @booking = Booking.new
     @booked = current_user.booked_tours.include?(@tour)

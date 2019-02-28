@@ -1,28 +1,45 @@
-<h1>My profile page</h1>
+<div class="container">
+  <h1>My Tours / Bookings</h1>
 
-<div class="container-fluid">
-  <div class="tabs">
-    <a class="tab" data-toggle="tab" href="#Tours">
-      <p>My tours</p>
-    </a>
-    <a class="tab" data-toggle="tab" href="#Bookings">
-      <p>My bookings</p>
-    </a>
-  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item active">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Tours" role="tab" aria-controls="home" aria-selected="true">My Tours</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Bookings" role="tab" aria-controls="profile" aria-selected="false">My Bookings</a>
+    </li>
+  </ul>
 
-  <div class="tab-content tab-padding">
+  <div class="tab-content" id="tab-profile-content">
     <div class="tab-pane fade in active" id="Tours">
       <h4><strong>My tours</strong></h4>
-      <% @my_tours.each do |tour| %>
-        <p><strong><%= link_to tour.title, tour_path(tour) %></strong> | <%= tour.location %> | $<%= tour.price %></p>
-        <p><%= link_to "Edit", edit_tour_path(tour) %></p>
-        <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
-        <p><small><%= tour.date %></small></p>
-        <!-- <p><small><%#= tour.description %></small></p> -->
-        <%= cl_image_tag tour.photo, height: 150, width: 200, crop: :fill %>
-      <% end %>
-        <%#= link_to 'Delete tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
-        <%#= link_to 'Edit tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
+      <div class="container">
+        <% @my_tours.each do |tour| %>
+        <div class="row">
+          <div class="big-card">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path tour.photo, height: 150, width: 200, crop: :fill %>)">
+              <h4><%= link_to tour.title, tour_path(tour) %> </h4>
+              <h5><%= tour.location %></h5>
+                <!-- $<%= tour.price %> -->
+              <!-- <p><small><%#= tour.description %></small></p> -->
+            </div>
+            <div class="big-card-details">
+              <p>Date:<%= tour.date %></p>
+              <p># Guests booked: <%= tour.users.count %></p>
+              <!-- <p>Description: <%= tour.description %></p> -->
+              <p>Price: $<%= tour.price %></p>
+              <p>Capacity: <%= tour.capacity %></p>
+              <h3>Total Price of Bookings: $<%= tour.price*tour.users.count %></h3>
+              <p><%= link_to "Edit", edit_tour_path(tour) %></p>
+              <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+          <%#= link_to 'Delete tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
+          <%#= link_to 'Edit tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
+
+      </div>
     </div>
 
     <div class="tab-pane fade" id="Bookings">

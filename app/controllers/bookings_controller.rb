@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: :index #TODO: What other authorizations?
   before_action :set_booking, only: [:edit, :update, :destroy]
-  before_action :set_tour, only: [:new, :create, :destroy]
+  before_action :set_tour, only: [:new, :create]
 
   def index
     @bookings = policy_scope(Booking)
@@ -13,10 +14,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    #TODO: If there is already a booking for that particular tour, then update that tour booking, not create a new booking.
     @booking.tour = @tour
     @booking.user = current_user
     if @booking.save
-      redirect_to tour_bookings_path
+      redirect_to bookings_path
     else
       render :new
     end
@@ -29,17 +31,18 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
+    redirect_to bookings_path
   end
 
   def destroy
     @booking.destroy
-    redirect_to tour_bookings_path
+    redirect_to bookings_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:tour_id, :user_id, :guests)
+    params.require(:booking).permit(:id, :tour_id, :user_id, :guests)
   end
 
   def set_booking
@@ -49,5 +52,6 @@ class BookingsController < ApplicationController
 
   def set_tour
     @tour = Tour.find(params[:tour_id])
+    authorize @tour
   end
 end

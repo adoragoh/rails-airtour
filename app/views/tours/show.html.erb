@@ -34,7 +34,11 @@
 
       <div class="inner-description">
 
-      <p><%= @tour.description %></p>
+      <p>
+        <%= @tour.description %>
+        <%#= link_to 'Delete tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
+        <%#= link_to 'Edit tour', tour_path(@tour), method: :delete #TODO: Create an alert that tells your that 'tour_name' has been deleted %>
+        </p>
       <div class="image-uploaded">
       <%= cl_image_tag @tour.photo, height: 300, width: 400, crop: :fill %>
       </div>
@@ -57,21 +61,37 @@
       <p>PLACEHOLDER</p>
     </div>
     <div class="tab-pane fade" id="Booking">
-      <p>No. of guests:</p>
-      <%= simple_form_for [@tour, @booking] do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <div class="form-inputs">
-          <%= f.select :guests, options_for_select(1..10) %>
-        </div>
+      <% if @booked %>
+        <h4>You've already booked this tour with <%= @booking.guests %> guests.</h4>
+          <p>Update the number of guests?</p>
+          <%= simple_form_for @booking do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <div class="form-actions">
-          <%= f.button :submit %>
-        </div>
+            <div class="form-inputs">
+              <%= f.select :guests, options_for_select(1..10) %>
+            </div>
 
-      <% end %>
+            <div class="form-actions">
+              <%= f.button :submit %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No. of guests:</p>
+          <%= simple_form_for [@tour, @booking] do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+            <div class="form-inputs">
+              <%= f.select :guests, options_for_select(1..10) %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit %>
+            </div>
+          <% end %>
+        <% end %>
     </div>
   </div>
 

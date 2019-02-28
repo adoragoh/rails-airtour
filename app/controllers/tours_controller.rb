@@ -24,6 +24,12 @@ class ToursController < ApplicationController
       infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: @tour })
     }]
     @booking = Booking.new
+    @booked = current_user.booked_tours.include?(@tour)
+
+    if @booked
+      @booking = current_user.bookings.where(tour_id: params[:id]).first
+    end
+
     authorize @booking
   end
 

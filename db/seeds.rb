@@ -1,3 +1,4 @@
+require 'pry'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -79,11 +80,97 @@ tours_array = [
   date: "27-02-2019",
   capacity: 10,
   user: User.last
+  },
+  {
+  title: "Foodies galore",
+  location: "Queensland",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 400,
+  date: "27-02-2019",
+  capacity: 20,
+  user: User.first
+  },
+  {
+  title: "Diving with the sharks",
+  location: "Cairns",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 500,
+  date: "27-06-2019",
+  capacity: 12,
+  user: User.first
+  },
+  {
+  title: "Live it up with the crocodiles",
+  location: "Darwin",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 50,
+  date: "27-07-2019",
+  capacity: 50,
+  user: User.first
+  },
+  {
+  title: "Tuk Tuk racing",
+  location: "Bangkok",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 50,
+  date: "27-09-2019",
+  capacity: 10,
+  user: User.first
+  },
+  {
+  title: "Diving with corals",
+  location: "Phi Phi Island",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 12,
+  date: "14-07-2019",
+  capacity: 30,
+  user: User.first
+  },
+  {
+  title: "Fight like a viking",
+  location: "Edinburgh",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 1000,
+  date: "14-05-2019",
+  capacity: 30,
+  user: User.first
+  },
+  {
+  title: "See Everest",
+  location: "Nepal",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 12,
+  date: "20-07-2019",
+  capacity: 30,
+  user: User.first
+  },
+  {
+  title: "MCG tours",
+  location: "Melbourne Cricket Grounds",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 12,
+  date: "20-07-2020",
+  capacity: 30,
+  user: User.first
+  },
+  {
+  title: "Penang Foodies Tour",
+  location: "Penang",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi temporibus, veritatis quidem error, aperiam amet velit, ratione dolore eum id unde. Modi dolor enim ratione labore ipsum, sequi quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  price: 12,
+  date: "20-07-2019",
+  capacity: 20,
+  user: User.first
   }
 ]
 
-# Tour.create!(tours_array)
+Tour.create!(tours_array)
 
-# tours = Tour.all?
+tours = Tour.all
+
+tours.each do |tour|
+  tour.remote_photo_url = "https://source.unsplash.com/1600x900/?#{tour.title}"
+  tour.save
+end
 
 puts "5 tours added to your database!"

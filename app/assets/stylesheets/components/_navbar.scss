@@ -82,5 +82,10 @@
   font-family: 'Roboto';
   letter-spacing: 15px;
   padding: 10px 0;
+  margin-left: 10px;
 }
 
+.navbar-left{
+  display: flex;
+  align-items: center;
+}

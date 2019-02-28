@@ -16,10 +16,10 @@ class ToursController < ApplicationController
     @markers = @tours.map do |tour|
       {
         lng: tour.longitude,
-        lat: tour.latitude
+        lat: tour.latitude,
+        infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: tour })
       }
     end
-
   end
 
   def my_tours
@@ -31,7 +31,7 @@ class ToursController < ApplicationController
     #authorize @tour
     @marker = [{
       lng: @tour.longitude,
-      lat: @tour.latitude
+      lat: @tour.latitude,
     }]
     @booking = Booking.new
 

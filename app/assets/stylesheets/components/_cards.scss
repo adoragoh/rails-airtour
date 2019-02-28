@@ -1,7 +1,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 10px;
 }
 
 // Smallest device
@@ -93,22 +93,10 @@
 }
 
 
-// .card {
-//   background-size: cover;
-//   background-position: center;
-//   color: white;
-//   font-size: 30px;
-//   text-align: center;
-//   padding: 50px;
-//   margin: 0 10px;
-//   height: 250px;
-//   width: 300px;
-// }
-
 .cards{
   display:flex;
   justify-content: space-around;
-  margin: 0px 20px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 

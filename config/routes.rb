@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :index, :edit, :update, :destroy ]
 
+  get '/profile', to: 'profiles#index'
+
 end
 
 # /tours => See all tours

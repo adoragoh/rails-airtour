@@ -8,13 +8,12 @@
 .layout-container{
   display: flex;
   position: relative;
-
   // justify-content: space-around;
   // width: 1300px;
 }
 
 .index-map{
-  flex: 0 0 450px;
+  flex: 1 0 450px;
   height: 80vh;
   position: sticky !important;
   top: 0 !important;

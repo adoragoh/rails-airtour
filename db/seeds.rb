@@ -82,7 +82,7 @@ tours_array = [
   }
 ]
 
-# Tour.create!(tours_array)
+Tour.create!(tours_array)
 
 # tours = Tour.all?
 

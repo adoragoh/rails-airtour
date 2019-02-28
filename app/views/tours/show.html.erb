@@ -1,7 +1,7 @@
 
 
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(212,165,154,0.2) 0%, rgba(192,88,76,0.2) 50%), url('http://i64.tinypic.com/4jb2bc.jpg');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(212,165,154,0.2) 0%, rgba(192,88,76,0.2) 50%), url(<%= cl_image_path @tour.photo, crop: :fill; %>)  ;">
   <div class="banner-content">
     <h1><%= @tour.title %></h1>
   </div>
@@ -11,14 +11,8 @@
 <div class="container-fluid">
 
   <div class="tabs">
-    <a class="tab" data-toggle="tab" href="#Description">
-      <p>Description</p>
-    </a>
     <a class="tab" data-toggle="tab" href="#Location">
-      <p>Location</p>
-    </a>
-    <a class="tab" data-toggle="tab" href="#Date">
-      <p>Date</p>
+      <p>Details</p>
     </a>
     <a class="tab" data-toggle="tab" href="#Booking">
       <p>Booking</p>
@@ -36,7 +30,7 @@
 
       <p><%= @tour.description %></p>
       <div class="image-uploaded">
-      <%= cl_image_tag @tour.photo, height: 300, width: 400, crop: :fill %>
+        <p>PLACEHOLDER</p>
       </div>
 
       </div>

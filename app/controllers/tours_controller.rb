@@ -20,7 +20,8 @@ class ToursController < ApplicationController
     #authorize @tour
     @marker = [{
       lng: @tour.longitude,
-      lat: @tour.latitude
+      lat: @tour.latitude,
+      infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: @tour })
     }]
     @booking = Booking.new
     authorize @booking

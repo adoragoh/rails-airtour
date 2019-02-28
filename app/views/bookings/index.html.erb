@@ -1,9 +1,21 @@
 <h2>My bookings</h2>
 <% @bookings.each do |booking| %>
   <% this_booking = booking.tour %>
-  <h4><%= link_to this_booking.title, tour_path(params[:tour_id]) %></h4>
+  <h4><%= link_to this_booking.title, tour_path(this_booking.id) %></h4>
   <p><%= this_booking.description %> in <%= this_booking.location %></p>
   <p>No. of guests booked: <%= booking.guests %></p>
-  <h6><%= link_to "Delete booking", tour_booking_path(params[:tour_id], booking), method: :delete %></h4>
-  <br>
+  <h6><%= link_to "Delete booking", booking_path(booking.id), method: :delete %></h4>
+  <p>Update the number of guests?</p>
+        <%= simple_form_for booking do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.select :guests, options_for_select(1..10) %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+        <% end %>
 <% end %>

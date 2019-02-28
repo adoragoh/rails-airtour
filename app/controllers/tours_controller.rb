@@ -5,7 +5,13 @@ class ToursController < ApplicationController
   def index
     @tours = policy_scope(Tour)
 
-    @tours = Tour.where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR location ILIKE :query"
+      @tours = Tour.where(sql_query, query: "%#{params[:query]}%").where.not(latitude: nil, longitude: nil)
+    else
+      @tours = Tour.all.where.not(latitude: nil, longitude: nil)
+    end
+
 
     @markers = @tours.map do |tour|
       {

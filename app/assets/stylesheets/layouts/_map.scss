@@ -1,0 +1,20 @@
+.big-container{
+  width: 1500px;
+  margin: 0 auto;
+}
+
+.layout-container{
+  display: flex;
+  position: relative;
+  // justify-content: space-around;
+  // width: 1300px;
+}
+
+.index-map{
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+

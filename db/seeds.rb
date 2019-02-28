@@ -1,3 +1,4 @@
+require 'pry'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -84,6 +85,11 @@ tours_array = [
 
 Tour.create!(tours_array)
 
-# tours = Tour.all?
+tours = Tour.all
+
+tours.each do |tour|
+  tour.remote_photo_url = "https://source.unsplash.com/1600x900/?#{tour.location}"
+  tour.save
+end
 
 puts "5 tours added to your database!"

@@ -1,24 +1,34 @@
-<h2>All tours</h2>
-<div class="layout-container">
-  <div class="index-cards">
-    <div class="row">
-      <% @tours.each do |tour| %>
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="card">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path tour.photo%>)">
-            <div class="card-name"><%= link_to tour.title, tour_path(tour) %></div>
-            <h5><%= tour.location %></h5>
-            <!-- <p><%= tour.description %> | <%= tour.price %></p> -->
-            <!-- <p><%= tour.user_id %> | <%= tour.user %></p> -->
+<div class="mid-container">
+  <h3>All tours</h3>
+  <%= form_tag tours_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a tour near you"
+    %>
+  <% end %>
+
+  <div class="layout-container">
+    <div class="container">
+      <div class="row">
+        <% @tours.each do |tour| %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="card">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path tour.photo%>)">
+              <div class="card-name"><%= link_to tour.title, tour_path(tour) %></div>
+              <h5><%= tour.location %></h5>
+              <!-- <p><%= tour.description %> | <%= tour.price %></p> -->
+              <!-- <p><%= tour.user_id %> | <%= tour.user %></p> -->
+            </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    </div>
-  <div
-    class="index-map" id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+      </div>
+    <div
+      class="index-map" id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+  </div>
 </div>

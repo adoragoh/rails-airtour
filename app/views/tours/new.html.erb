@@ -31,6 +31,7 @@
         <%= f.input :title %>
         <%= f.input :location %>
         <%= f.input :description %>
+        <%= f.input :category, collection: [ "History", "Food", "Adventure", "Supernatural", "Sightseeing", "Romance", "Adrenaline" ] %>
         <%= f.input :price %>
         <%= f.input :date %>
         <%= f.input :capacity %>

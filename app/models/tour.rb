@@ -11,6 +11,9 @@ class Tour < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :date, presence: true
   validates :capacity, presence: true, numericality: { only_integer: true }
+  validates :category, inclusion: { in: ["History", "Food", "Adventure", "Supernatural", "Sightseeing", "Romance", "Adrenaline"]}
 
   mount_uploader :photo, PhotoUploader
 end
+
+

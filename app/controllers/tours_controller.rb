@@ -6,7 +6,7 @@ class ToursController < ApplicationController
     @tours = policy_scope(Tour)
 
     if params[:query].present?
-      sql_query = "title ILIKE :query OR location ILIKE :query"
+      sql_query = "title ILIKE :query OR location ILIKE :query OR category ILIKE :query"
       @tours = Tour.where(sql_query, query: "%#{params[:query]}%").where.not(latitude: nil, longitude: nil)
     else
       @tours = Tour.all.where.not(latitude: nil, longitude: nil)
@@ -20,6 +20,13 @@ class ToursController < ApplicationController
         infoWindow: render_to_string(partial: "/shared/map_info", locals: { tour: tour })
       }
     end
+
+    # @all_tours.each do |tour|
+    #   if !@categories.include?(tour.category)
+    #     @categories << tour.category
+    #   end
+    # end
+
   end
 
   def my_tours

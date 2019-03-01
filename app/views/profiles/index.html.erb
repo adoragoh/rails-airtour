@@ -3,35 +3,51 @@
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item active">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Tours" role="tab" aria-controls="home" aria-selected="true">My Tours</a>
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Tours" role="tab" aria-controls="home" aria-selected="true">My Tours (<%= @my_tours.count%>)</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Bookings" role="tab" aria-controls="profile" aria-selected="false">My Bookings</a>
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Bookings" role="tab" aria-controls="profile" aria-selected="false">My Bookings (<%= @my_bookings.count%>)</a>
     </li>
   </ul>
 
   <div class="tab-content" id="tab-profile-content">
     <div class="tab-pane fade in active" id="Tours">
-      <h4><strong>My tours</strong></h4>
+      <h4><strong>My Tours:  <%= @my_tours.count%> in total </strong></h4>
       <div class="container">
         <% @my_tours.each do |tour| %>
         <div class="row">
           <div class="big-card">
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path tour.photo, height: 150, width: 200, crop: :fill %>)">
-              <h4><%= link_to tour.title, tour_path(tour) %> </h4>
-              <h5><%= tour.location %></h5>
-                <!-- $<%= tour.price %> -->
-              <!-- <p><small><%#= tour.description %></small></p> -->
+            <div class="big-card-image-container">
+
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path tour.photo, height: 150, width: 200, crop: :fill %>)">
+                <h4><%= link_to tour.title, tour_path(tour) %> </h4>
+                <h5><%= tour.location %></h5>
+              </div>
+              <div class="big-card-bottom-card">
+                <p><i class="fas fa-clock">&nbsp;</i><%= rand(1..3) %> hours</p>
+                <p><i class="fas fa-dollar-sign">&nbsp;</i><%= tour.price %></p>
+              </div>
+
             </div>
             <div class="big-card-details">
-              <p>Date:<%= tour.date %></p>
-              <p># Guests booked: <%= tour.users.count %></p>
-              <!-- <p>Description: <%= tour.description %></p> -->
-              <p>Price: $<%= tour.price %></p>
-              <p>Capacity: <%= tour.capacity %></p>
-              <h3>Total Price of Bookings: $<%= tour.price*tour.users.count %></h3>
-              <p><%= link_to "Edit", edit_tour_path(tour) %></p>
-              <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
+
+              <div class="big-card-main-details">
+                <h3><%= tour.title %></h3>
+                <p><i class="fas fa-map-marker-alt">&nbsp;</i><%= tour.location.capitalize %></p>
+                <p><i class="fas fa-table">&nbsp;</i><%= tour.date %></p>
+
+                <p><i class="fas fa-users"></i> <%= tour.users.count %> person</p>
+                <p>Capacity: <%= tour.capacity %></p>
+              </div>
+
+              <div class="big-card-price">
+                <h4>Your earnings:   $<%= tour.price*tour.users.count %></h4>
+              </div>
+
+              <div class="big-card-links">
+                <p><%= link_to "Edit", edit_tour_path(tour) %></p>
+                <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
+              </div>
             </div>
           </div>
         </div>
@@ -42,33 +58,64 @@
       </div>
     </div>
 
+
     <div class="tab-pane fade" id="Bookings">
-      <h4><strong>My bookings</strong></h4>
+      <h4><strong>My Bookings:  <%= @my_bookings.count%> in total </strong></h4>
+      <div class="container">
         <% @my_bookings.each do |booking| %>
-          <% tour = booking.tour %>
-          <p><%= link_to "Delete", booking_path(booking), method: :delete %></p>
-          <p><strong><%= link_to tour.title, tour_path(tour) %></strong> | Guests booked: <%= booking.guests %></p>
-          <p><small><%= tour.location %></small></p>
-          <%= cl_image_tag tour.photo, height: 150, width: 200, crop: :fill %>
-          <p>Update the number of guests?</p>
-          <%= simple_form_for booking do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <div class="form-inputs">
-              <%= f.select :guests, options_for_select(1..10) %>
+        <% tour = booking.tour %>
+        <div class="row">
+          <div class="big-card">
+            <div class="big-card-image-container">
+
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path tour.photo, height: 150, width: 200, crop: :fill %>)">
+                <h4><%= link_to tour.title, tour_path(tour) %> </h4>
+                <h5><%= tour.location %></h5>
+              </div>
+              <div class="big-card-bottom-card">
+                <p><i class="fas fa-clock">&nbsp;</i><%= rand(1..3) %> hours</p>
+                <p><i class="fas fa-dollar-sign">&nbsp;</i><%= tour.price %></p>
+              </div>
+
             </div>
-            <div class="form-actions">
-              <%= f.button :submit %>
+            <div class="big-card-details">
+
+              <div class="big-card-main-details">
+                <h3><%= tour.title %></h3>
+                <p><i class="fas fa-map-marker-alt">&nbsp;</i><%= tour.location.capitalize %></p>
+                <p><i class="fas fa-table">&nbsp;</i><%= tour.date %></p>
+
+
+
+                <p>Update the number of guests?</p>
+                  <%= simple_form_for booking do |f| %>
+                  <div id="form-guest-update">
+                    <%= f.error_notification %>
+                    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+                    <div class="form-inputs">
+                      <%= f.select :guests, options_for_select(1..10) %>
+                    </div>
+                    <div class="form-actions">
+                      <%= f.button :submit %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="big-card-bookings">
+
+                <p><i class="fas fa-users"> </i> Confirmed booking for <strong><%= booking.guests %></strong></p>
+              </div>
+
+              <div class="big-card-links">
+                <p><%= link_to "Delete", booking_path(booking), method: :delete %></p>
+              </div>
             </div>
-          <% end %>
+          </div>
+        </div>
         <% end %>
+      </div>
     </div>
 
   </div>
 </div>
-
-
-
-
-
-

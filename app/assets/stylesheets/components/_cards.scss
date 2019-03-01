@@ -202,11 +202,15 @@
   box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
-.card-title {
+.card-title{
+  text-decoration: none;
   text-align: center;
   font-weight: lighter;
 }
 
+.card-title a{
+  color: grey;
+}
+
 .card-body {
-  background-color: lightgrey;
 }

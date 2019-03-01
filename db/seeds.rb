@@ -42,7 +42,8 @@ tours_array = [
   price: 80,
   date: "27-02-2019",
   capacity: 10,
-  user: User.last
+  user: User.last,
+  category: "Boozy" #TODO: Create a dropdown of categories to choose from (mayben will need new table? But don't worry about it yet)
   },
   {
   title: "Camel ride across the Nullabor Desert",
@@ -51,7 +52,8 @@ tours_array = [
   price: 2700,
   date: "27-02-2019",
   capacity: 10,
-  user: User.last
+  user: User.last,
+  category: "Adventure"
   },
   {
   title: "Hipster bar crawl in Newtown",
@@ -60,7 +62,8 @@ tours_array = [
   price: 65,
   date: "27-02-2019",
   capacity: 10,
-  user: User.last
+  user: User.last,
+  category: "Boozy"
   },
   {
   title: "Ghost Tour",
@@ -69,7 +72,8 @@ tours_array = [
   price: 45,
   date: "27-02-2019",
   capacity: 10,
-  user: User.last
+  user: User.last,
+  category: "Supernatural"
   },
   {
   title: "Gold diggers fantasy camp",
@@ -78,7 +82,8 @@ tours_array = [
   price: 500,
   date: "27-02-2019",
   capacity: 10,
-  user: User.last
+  user: User.last,
+  category: "History"
   },
   {
   title: "Foodies galore",
@@ -87,7 +92,8 @@ tours_array = [
   price: 400,
   date: "27-02-2019",
   capacity: 20,
-  user: User.first
+  user: User.first,
+  category: "Food"
   },
   {
   title: "Diving with the sharks",
@@ -96,7 +102,8 @@ tours_array = [
   price: 500,
   date: "27-06-2019",
   capacity: 12,
-  user: User.first
+  user: User.first,
+  category: "Adventure"
   },
   {
   title: "Live it up with the crocodiles",
@@ -105,7 +112,8 @@ tours_array = [
   price: 50,
   date: "27-07-2019",
   capacity: 50,
-  user: User.first
+  user: User.first,
+  category: "Adventure"
   },
   {
   title: "Tuk Tuk racing",
@@ -114,7 +122,8 @@ tours_array = [
   price: 50,
   date: "27-09-2019",
   capacity: 10,
-  user: User.first
+  user: User.first,
+  category: "Sightseeing"
   },
   {
   title: "Diving with corals",
@@ -123,7 +132,8 @@ tours_array = [
   price: 12,
   date: "14-07-2019",
   capacity: 30,
-  user: User.first
+  user: User.first,
+  category: "Adventure"
   },
   {
   title: "Fight like a viking",
@@ -132,7 +142,8 @@ tours_array = [
   price: 1000,
   date: "14-05-2019",
   capacity: 30,
-  user: User.first
+  user: User.first,
+  category: "History"
   },
   {
   title: "See Everest",
@@ -141,7 +152,8 @@ tours_array = [
   price: 12,
   date: "20-07-2019",
   capacity: 30,
-  user: User.first
+  user: User.first,
+  category: "Adventure"
   },
   {
   title: "MCG tours",
@@ -150,7 +162,8 @@ tours_array = [
   price: 12,
   date: "20-07-2020",
   capacity: 30,
-  user: User.first
+  user: User.first,
+  category: "Sightseeing"
   },
   {
   title: "Penang Foodies Tour",
@@ -159,7 +172,8 @@ tours_array = [
   price: 12,
   date: "20-07-2019",
   capacity: 20,
-  user: User.first
+  user: User.first,
+  category: "Food"
   }
 ]
 

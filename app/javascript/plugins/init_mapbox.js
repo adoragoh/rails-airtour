@@ -14,7 +14,7 @@ const fitMapToMarkers = (map, markers) => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/alexvassiliou/cjspk6gbu2vjv1fn367o5uhob'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -31,3 +31,5 @@ const fitMapToMarkers = (map, markers) => {
 
 
 export { initMapbox };
+
+// mapbox://styles/mapbox/streets-v10

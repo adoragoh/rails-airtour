@@ -2,11 +2,15 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
-    @tours = policy_scope(Tour)
     @bookings = policy_scope(Booking)
+    @my_bookings = @bookings.where(user_id: current_user).order(created_at: :desc)
 
-    @my_tours = @tours.where(user_id: current_user)
-    @my_bookings = @bookings.where(user_id: current_user)
+    @tours = policy_scope(Tour)
+    @my_tours = @tours.where(user_id: current_user).order(created_at: :desc)
+
+    @just_booked = params[:just_booked] == "true"
+    @just_tours = params[:just_tours] == "true"
   end
 
+  private
 end

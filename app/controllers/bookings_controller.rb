@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.tour = @tour
     @booking.user = current_user
     if @booking.save
-      redirect_to profile_path
+      redirect_to profile_path(just_booked: "true")
     else
       render :new
     end
@@ -31,12 +31,12 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to profile_path
+    redirect_to profile_path(just_booked: "true")
   end
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to profile_path(just_booked: "true")
   end
 
   private

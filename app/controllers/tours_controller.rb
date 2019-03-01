@@ -80,7 +80,7 @@ class ToursController < ApplicationController
 
   def destroy
     @tour.destroy
-    redirect_to profile_path
+    redirect_to profile_path(just_tours: "true")
   end
 
   private

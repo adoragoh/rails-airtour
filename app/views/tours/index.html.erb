@@ -1,51 +1,52 @@
 <div class="container-fluid">
-  <h3>All tours</h3>
-  <%= form_tag tours_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a tour near you"
-    %>
-  <% end %>
+  <div class="search-container">
+    <h3>All tours</h3>
+    <%= form_tag tours_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        id: "search-bar",
+      placeholder: "Find a tour near you"
+      %>
+    <% end %>
+  </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
 
-<div class="container-fluid margin-bottom">
-  <h1 class="text-center mb-3">Types of tours</h1><br>
-  <div id="tourCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner row w-100 mx-auto">
-      <% counter = 0 %>
-      <% Tour::Categories.each do |category| %>
+  <div class="container-fluid margin-bottom">
+    <h1 class="text-center mb-3">Types of tours</h1><br>
+    <div id="tourCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner row w-100 mx-auto">
+        <% counter = 0 %>
+        <% Tour::Categories.each do |category| %>
 
-        <div class="carousel-item col-md-3 <%= 'active' if counter == 0 %>">
-          <div class="card">
-            <!-- <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap"> -->
-            <div class="card-body" style="background-color: #F3E0DC">
-              <h4 class="card-title"><%= link_to category.upcase, tours_path(query: category) %></h4>
+          <div class="carousel-item col-md-3 <%= 'active' if counter == 0 %>">
+            <div class="card">
+              <!-- <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap"> -->
+              <div class="card-body" style="background-color: #F3E0DC">
+                <h4 class="card-title"><%= link_to category.upcase, tours_path(query: category) %></h4>
 
-              <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+              </div>
             </div>
           </div>
-        </div>
-        <% counter += 1 %>
-      <% end %>
+          <% counter += 1 %>
+        <% end %>
 
+      </div>
+      <a class="carousel-control-prev" href="#tourCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only arrow">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#tourCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only arrow">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#tourCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only arrow">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#tourCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only arrow">Next</span>
-    </a>
   </div>
-</div>
 
-<br>
-<br>
-<br>
+  <br><br><br>
 
   <div class="layout-container">
     <div class="container">

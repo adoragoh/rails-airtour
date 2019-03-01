@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
 
 <div class="container-fluid margin-bottom">
-  <h1 class="text-center mb-3">Types of tours</h1>
+  <h1 class="text-center mb-3">Types of tours</h1><br>
   <div id="tourCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner row w-100 mx-auto">
       <% counter = 0 %>
@@ -20,8 +20,8 @@
         <div class="carousel-item col-md-3 <%= 'active' if counter == 0 %>">
           <div class="card">
             <!-- <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap"> -->
-            <div class="card-body">
-              <h4 class="card-title"><%= link_to category, tours_path(query: category) %></h4>
+            <div class="card-body" style="background-color: #F3E0DC">
+              <h4 class="card-title"><%= link_to category.upcase, tours_path(query: category) %></h4>
 
               <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
@@ -43,6 +43,8 @@
   </div>
 </div>
 
+<br>
+<br>
 <br>
 
   <div class="layout-container">

@@ -2,19 +2,20 @@
   <h1>My Tours / Bookings</h1>
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item active">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Tours" role="tab" aria-controls="home" aria-selected="true">My Tours (<%= @my_tours.count%>)</a>
+    <li class="nav-item <%= 'active' unless @just_booked %>">
+      <a class="nav-link <%= 'active' unless @just_booked %>" id="home-tab" data-toggle="tab" href="#Tours" role="tab" aria-controls="home" aria-selected="true">My Tours (<%= @my_tours.count%>)</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Bookings" role="tab" aria-controls="profile" aria-selected="false">My Bookings (<%= @my_bookings.count%>)</a>
+    <li class="nav-item <%= 'active' if @just_booked %>">
+      <a class="nav-link <%= 'active' if @just_booked %>" id="profile-tab" data-toggle="tab" href="#Bookings" role="tab" aria-controls="profile" aria-selected="false">My Bookings (<%= @my_bookings.count%>)</a>
     </li>
   </ul>
 
   <div class="tab-content" id="tab-profile-content">
-    <div class="tab-pane fade in active" id="Tours">
+    <div class="tab-pane fade in <%= 'active' unless @just_booked %>" id="Tours">
       <h4><strong>My Tours:  <%= @my_tours.count%> in total </strong></h4>
       <div class="container">
         <% @my_tours.each do |tour| %>
+        <% people_sum = tour.bookings.map(&:guests).sum %>
         <div class="row">
           <div class="big-card">
             <div class="big-card-image-container">
@@ -36,12 +37,13 @@
                 <p><i class="fas fa-map-marker-alt">&nbsp;</i><%= tour.location.capitalize %></p>
                 <p><i class="fas fa-table">&nbsp;</i><%= tour.date %></p>
 
-                <p><i class="fas fa-users"></i> <%= tour.users.count %> person</p>
+
+                <p><i class="fas fa-users"></i> <%= pluralize people_sum, 'person' %></p>
                 <p>Capacity: <%= tour.capacity %></p>
               </div>
 
               <div class="big-card-price">
-                <h4>Your earnings:   $<%= tour.price*tour.users.count %></h4>
+                <h4>Your earnings:   $<%= tour.price*people_sum %></h4>
               </div>
 
               <div class="big-card-links">
@@ -59,7 +61,7 @@
     </div>
 
 
-    <div class="tab-pane fade" id="Bookings">
+    <div class="tab-pane fade in <%= 'active' if @just_booked %> " id="Bookings">
       <h4><strong>My Bookings:  <%= @my_bookings.count%> in total </strong></h4>
       <div class="container">
         <% @my_bookings.each do |booking| %>

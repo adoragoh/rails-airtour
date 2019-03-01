@@ -19,11 +19,11 @@ users_array = [
   password: "securepassword"
   },
   {
-  email: "alex@airtours.com",
+  email: "adora@airtours.com",
   password: "securepassword"
   },
   {
-  email: "adora@airtours.com",
+  email: "alex@airtours.com",
   password: "securepassword"
   }
 ]
@@ -206,4 +206,4 @@ tours.each do |tour|
   tour.save
 end
 
-puts "5 tours added to your database!"
+puts "Many awesome tours added to your database!"

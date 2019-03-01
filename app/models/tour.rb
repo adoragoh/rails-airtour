@@ -13,4 +13,6 @@ class Tour < ApplicationRecord
   validates :capacity, presence: true, numericality: { only_integer: true }
 
   mount_uploader :photo, PhotoUploader
+
+  Categories = ['History', 'Food', 'Adventure', 'Supernatural', 'Sightseeing', 'Romance', 'Adrenaline']
 end

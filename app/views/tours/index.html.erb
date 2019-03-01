@@ -48,18 +48,24 @@
   <div class="layout-container">
     <div class="container">
       <div class="row">
-        <% @tours.each do |tour| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="cards">
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path tour.photo%>)">
-              <div class="card-name"><%= link_to tour.title, tour_path(tour) %></div>
-              <h5><%= tour.location %></h5>
-              <!-- <p><%= tour.description %> | <%= tour.price %></p> -->
-              <!-- <p><%= tour.user_id %> | <%= tour.user %></p> -->
+      <% @tours.each do |tour| %>
+      <div class="col-md-4 active">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="<%= cl_image_path tour.photo%>" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to tour.title, tour_path(tour) %></h4>
+            <div class="card-text">
+            <p><i class="fas fa-table">&nbsp;</i><%= tour.date %>&nbsp;
+            &nbsp;<i class="fas fa-clock">&nbsp;</i><%= rand(1..3) %> hours
+            &nbsp;<i class="fas fa-dollar-sign">&nbsp;</i><%= tour.price %></p>
+            <% desc = tour.description[0,200] +"..."%>
+            <p><%= desc %></p>
+
             </div>
           </div>
         </div>
-        <% end %>
+      </div>
+    <% end %>
       </div>
       </div>
     <div

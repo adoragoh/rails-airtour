@@ -1,5 +1,6 @@
 #login{
   margin-top:30px;
+  margin-bottom: 300px;
 }
 
 #register{
@@ -13,4 +14,16 @@
 #form-guest-update{
   display: flex;
   // justify-content: space-between;
+}
+
+.search-container{
+  margin: 25px 20px;
+}
+
+.search-container h3{
+  font-size: 21px;
+}
+
+#search-bar {
+  font-size: 15px;
 }

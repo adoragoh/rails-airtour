@@ -100,3 +100,43 @@
 }
 
 
+.big-card{ // Container for the whole big card
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px 10px;
+}
+
+.big-card-image{ // Container for the big card image with title
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  margin: 10px 10px;
+}
+
+.big-card-details{
+  flex: 1 0 auto;
+  margin-left: 15px;
+}
+
+
+.big-card-details p{
+  font-weight: lighter;
+}

@@ -1,4 +1,8 @@
-<%= simple_form_for(@tour) do |f| %>
+<div class="container">
+  <div class="row" id="form-create">
+    <h2>Edit Tour</h2>
+
+        <%= simple_form_for(@tour) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -15,3 +19,5 @@
         <div class="form-actions">
           <%= f.button :submit %>
           <% end %>
+</div>
+</div>

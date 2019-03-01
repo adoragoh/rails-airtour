@@ -12,6 +12,7 @@ class Tour < ApplicationRecord
   validates :date, presence: true
   validates :capacity, presence: true, numericality: { only_integer: true }
 
+
   mount_uploader :photo, PhotoUploader
 end
 

@@ -14,6 +14,8 @@ class Tour < ApplicationRecord
 
 
   mount_uploader :photo, PhotoUploader
+
+  Categories = ['History', 'Food', 'Adventure', 'Supernatural', 'Sightseeing', 'Romance', 'Adrenaline']
 end
 
 

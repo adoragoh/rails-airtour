@@ -113,6 +113,7 @@
   margin: 10px 10px;
   position: relative;
   padding:10px 10px;
+  width:auto;
 }
 
 .big-card-image-container{
@@ -135,6 +136,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
   margin: 10px 10px;
+  // flex: 1  auto;
 }
 
 .big-card-image-details{
@@ -176,13 +178,17 @@
 .big-card-main-details h3{
   margin-top:20px;
 }
+.big-card-main-details-top{
+  display: flex;
+  justify-content: space-between;
+}
 
 .big-card-links{
   display:flex;
-  position: absolute;
-  top:0px;
-  right:0px;
-  margin: 20px 10px;
+  // position: absolute;
+  // top:0px;
+  // right:0px;
+  // margin: 20px 10px;
 }
 .big-card-links a{
   color: blue;

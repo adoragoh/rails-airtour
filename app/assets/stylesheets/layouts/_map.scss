@@ -22,6 +22,36 @@
 }
 
 
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .index-map { display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .index-map { ;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+
+
 .form-control{
   margin-bottom: 20px;
 }

@@ -19,7 +19,6 @@
         <div class="row">
           <div class="big-card">
             <div class="big-card-image-container">
-
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path tour.photo, height: 150, width: 200, crop: :fill %>)">
                 <!-- <h4><%= link_to tour.title, tour_path(tour) %> </h4> -->
                 <h5><%= tour.location %></h5>
@@ -28,27 +27,27 @@
                 <p><i class="fas fa-clock">&nbsp;</i><%= rand(1..3) %> hours</p>
                 <p><i class="fas fa-dollar-sign">&nbsp;</i><%= tour.price %></p>
               </div>
+              <div class="big-card-links">
+                    <p><%= link_to "Edit", edit_tour_path(tour) %></p>
+                    <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
+              </div>
 
             </div>
             <div class="big-card-details">
-
               <div class="big-card-main-details">
                 <h3><%= link_to tour.title, tour_path(tour) %></h3>
+
+
                 <p><i class="fas fa-map-marker-alt">&nbsp;</i><%= tour.location.capitalize %></p>
                 <p><i class="fas fa-table">&nbsp;</i><%= tour.date %></p>
 
                 <p><i class="fas fa-users"></i> <%= pluralize people_sum, 'person' %></p>
                 <p>Capacity: <%= tour.capacity %></p>
-              </div>
-
-              <div class="big-card-price">
                 <h4>Your earnings:   $<%= tour.price*people_sum %></h4>
               </div>
 
-              <div class="big-card-links">
-                <p><%= link_to "Edit", edit_tour_path(tour) %></p>
-                <p><%= link_to "Delete", tour_path(tour), method: :delete %></p>
-              </div>
+              <!-- <div class="big-card-price">
+              </div> -->
             </div>
           </div>
         </div>
@@ -76,7 +75,9 @@
                 <p><i class="fas fa-clock">&nbsp;</i><%= rand(1..3) %> hours</p>
                 <p><i class="fas fa-dollar-sign">&nbsp;</i><%= tour.price %></p>
               </div>
-
+              <div class="big-card-links">
+                <p><%= link_to "Delete", booking_path(booking), method: :delete %></p>
+              </div>
             </div>
             <div class="big-card-details">
 
@@ -84,10 +85,13 @@
                 <h3><%= link_to tour.title, tour_path(tour) %></h3>
                 <p><i class="fas fa-map-marker-alt">&nbsp;</i><%= tour.location.capitalize %></p>
                 <p><i class="fas fa-table">&nbsp;</i><%= tour.date %></p>
+                <p><i class="fas fa-users"> </i> Booked:     <strong><%= booking.guests %></strong>
+                <h4> Total Cost: <i class="fas fa-dollar-sign"></i><%= tour.price*booking.guests %> </h4>
 
 
 
-                <p>Update the number of guests:</p>
+
+                <p>Update # of guests:</p>
                   <%= simple_form_for booking do |f| %>
                   <div id="form-guest-update">
                     <%= f.error_notification %>
@@ -102,14 +106,8 @@
                 </div>
               </div>
 
-              <div class="big-card-bookings">
-
-                <p><i class="fas fa-users"> </i> Booked: <strong><%= booking.guests %></strong><br> Total Cost: <strong><i class="fas fa-dollar-sign"></i><%= tour.price*booking.guests %> </strong></p>
-              </div>
-
-              <div class="big-card-links">
-                <p><%= link_to "Delete", booking_path(booking), method: :delete %></p>
-              </div>
+              <!-- <div class="big-card-bookings">
+              </div> -->
             </div>
           </div>
         </div>

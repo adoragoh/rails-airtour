@@ -5,8 +5,7 @@ var newReview = '<p><%= @review.content %></p>'
 
 var reviews = document.querySelector('.reviews')
 
-reviews.insertAdjacentHTML('afterbegin', newReview)
+reviews.insertAdjacentHTML('beforeend', newReview)
 
 var inputBox = document.querySelector('review_content')
-
 inputBox.value = ""

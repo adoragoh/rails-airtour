@@ -36,7 +36,8 @@ class ToursController < ApplicationController
   def show
     #set_tour method called
     #authorize @tour
-    @review = Review.now
+    @review = Review.new
+
     @marker = [{
       lng: @tour.longitude,
       lat: @tour.latitude,

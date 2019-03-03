@@ -82,9 +82,28 @@
       </div>
 
   <div class="container-border"></div>
-  <h3>Reviews</h3>
-  <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
 
+  <div class="container-reviews">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3" id="review">
+        <h3>Reviews</h3>
+
+        <h5><%= pluralize @tour.reviews.size, "review" %></h5>
+
+        <div class="reviews">
+          <% if @tour.reviews.blank? %>
+            <p style="font-size: 9px;">Be the first to leave a review for <%= @tour.title %></p>
+          <% else %>
+            <% @tour.reviews.each do |review| %>
+            <p><%= review.content%> <strong>by</strong> <%= @tour.user.email %></p>
+            <% end %>
+
+          <% end %>
+        </div>
+        <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+      </div>
+    </div>
+  </div>
 
   <div class="container-border"></div>
 

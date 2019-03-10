@@ -87,6 +87,7 @@ class ToursController < ApplicationController
 
   private
 
+
   def set_tour
     @tour = Tour.find(params[:id])
     authorize @tour

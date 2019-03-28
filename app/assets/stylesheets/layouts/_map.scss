@@ -24,13 +24,16 @@
 
 
 // Small devices (landscape phones, 576px and up)
-@media (max-width: 576px) {
+@media (max-width: 715px) {
   .index-map { display: none;
+  }
+  .big-card{
+    height:400px;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@media (min-width: 716px) {
   .index-map { ;
   }
 }

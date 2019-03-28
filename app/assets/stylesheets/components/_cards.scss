@@ -117,7 +117,8 @@
 }
 
 .big-card-image-container{
-
+  flex: 0 1 auto;
+  // width: 100px
 }
 
 .big-card-image{ // Container for the big card image with title
